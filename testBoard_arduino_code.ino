@@ -6,7 +6,6 @@ int pinCount = 6;               // Number of LEDs
 
 void setup() {
   Serial.begin(9600);            // Must match the Baud Rate in Python
-  pinMode(ledPin, OUTPUT);           //  LED
   pinMode(lockPin, OUTPUT);          // lock system
   for (int i = 0; i < pinCount; i++) {
     pinMode(ledPins[i], OUTPUT);
@@ -34,7 +33,7 @@ void executeCommand(String cmd) {
   if (cmd == "LED_ON") {
     // Turning them all HIGH at once
   for (int i = 0; i < pinCount; i++) {
-    analogWrite(ledPin, 138);
+    analogWrite(ledPins[i], 138);
   }
   } 
   else if (cmd == "LED_OFF") {
